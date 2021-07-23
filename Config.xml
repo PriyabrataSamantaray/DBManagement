@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<CreateDB>
+
+  <!-- Add servers here.  'Nickname' displays in the dropdown list.  'Name' is the actual SQL Server instance.
+       Set 'IsPro' to 'true' in order to warn the user that they are about to update a production server.
+       Place servers in the order in which they should appear. -->
+  <Servers>
+    <Server NickName="(local)" Name="." IsPro="False" />
+    <Server NickName="QA" Name="DCA-QA-247" IsPro="False" />
+    <Server NickName="Staging" Name="DCA-QA-86" IsPro="False" />
+    <Server NickName="PRD" Name="PRMPRDLSNR" IsPro="True" />
+  </Servers>
+
+  <!-- Create a single set of opening and closing tags for each project.  'Name' displays in the dropdown list.
+  'SQLRootFolder' is the path beneath the devhome folder, where the sql source files are kept for this project 
+  
+  Within each set of project tags, add as many versions as needed.  'Number is displayed in the dropdown list.
+  'SourceFolder' is the folder beneath the project's 'SQLRootFolder', where the SQL files for this version exist.
+  The parser will expect to find exactly one file with a '.schema' extension in this location, along with the 
+  actual SQL files to be processed. -->
+  <Projects>
+    <Project NickName="ClassicPRM" DatabaseName="projectResourceMgmt" SQLRootFolder ="\prm\sql\">
+      <Version Number="14.1" SrcFolder="14.1\" />
+    </Project>
+    <Project NickName="MyTeam" DatabaseName="gfpPrm" SQLRootFolder ="\myTeam\sql\">
+      <Version Number="3.6" SrcFolder="sql\" />
+    </Project>
+    <Project NickName="CSA" DatabaseName="gfpPRM" SQLRootFolder ="\csa\csasql\">
+      <Version Number="2.1" SrcFolder="2.1\" />
+    </Project>
+    <Project NickName="CERTS" DatabaseName="Mycert" SQLRootFolder ="\certs\sql\">
+      <Version Number="1.4" SrcFolder="1.4\" />
+    </Project>
+    <Project NickName="MyWork" DatabaseName="gfpPrm" SQLRootFolder ="\prm-timeCard\sql\">
+      <Version Number="1.3" SrcFolder="1.3\" />
+    </Project>
+    <Project NickName="MyHoursPRM-ClassicPRM" DatabaseName="projectresourcemgmt" SQLRootFolder ="\fieldTimeCard\sql\">
+      <Version Number="1.3" SrcFolder="1.3\" />
+    </Project>
+  </Projects>
+
+</CreateDB>
